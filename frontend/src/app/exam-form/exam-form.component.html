@@ -1,0 +1,35 @@
+<form class="exam-form" [formGroup]="examForm" (ngSubmit)="addExam()">
+    <div formGroupName="student">
+        <div class="mb-3">
+            <label class="form-label">Prénom</label>
+            <input class="form-control" type="text" formControlName="first_name"
+            required
+            />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Nom</label>
+            <input class="form-control" type="text" formControlName="last_name"
+            required
+            />
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Lieu de rdv</label>
+        <input class="form-control" type="text" formControlName="meeting_point"
+        />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Date et heure</label>
+        <input class="form-control" type="datetime" formControlName="date"
+        />
+    </div>
+
+    <select class="form-select mb-3" aria-label="Default select example" formControlName="status">
+        <option selected value="A organiser">A organiser</option>
+        <option value="Annulé">Annulé</option>
+        <option value="Recherche de place">Recherche de place</option>
+        <option value="Confirmé">Confirmé</option>
+    </select>
+
+    <button type="submit">Organiser</button>
+</form>

@@ -2,6 +2,8 @@ openapi: 3.0.0
 info:
   title: API des Examens
   version: 1.0.0
+servers:
+  - http://localhost:3000
 paths:
   /exams:
     get:

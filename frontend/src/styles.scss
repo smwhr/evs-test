@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    font-family: "Open sans";
+    margin-top: 3em;
+}
+h1{
+    color: #333;
+    font-size: 2em;
+    font-weight: 800;
+}
+.byline{
+    color: #666;
+    font-weight: 800;
+    margin-bottom: 0.5em;
+}
+
+.btn.btn-orange{
+    color: white;
+    background-color: #fb5607;
+}
+
+.exam-form{
+    padding: 1em;
+    margin: 1em;
+    background-color: #eee;
+}
+
+.exams{
+    .row{
+        border: 1px solid #ebeae9;
+        margin-bottom: 1em;
+        border-radius: 15px;
+        line-height: 4em;
+        font-weight: 600;
+
+        em{
+            color: #CCC;
+            font-weight: 300;
+        }
+        i.bi{
+            margin-right: 0.3em
+        }
+    }
+}

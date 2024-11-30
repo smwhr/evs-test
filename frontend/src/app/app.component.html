@@ -1,0 +1,69 @@
+
+<main class="main">
+  <div class="content">
+    <div class="container">
+      <div class="row"> 
+        <div class="col">
+          <h1>Mes examens</h1>
+          <div class="byline">
+            {{(exams$ || []).length}} examens à venir
+          </div>
+        </div>
+        <div class="col-3 text-right">
+          <button type="button" 
+              class="btn btn-orange"
+              (click)="toggleForm()"
+          >Organiser un examen</button>
+        </div>
+      </div>
+      @if (displayForm) {
+      <div class="row">
+        <div class="col">
+          <exam-form [onSubmitCallback]="refreshExams" />
+        </div>
+      </div>
+    }
+    </div>
+    <div class="container exams">
+    @for (item of exams$; track $index) {
+      <div class="row">
+        <div class="col">
+          <i class="bi bi-person"></i> {{item.student.first_name}} {{item.student.last_name.slice(0,1)}}.
+        </div>
+        <div class="col">
+          <i class="bi bi-pin-map"></i>
+          @if (item.meeting_point) {
+            {{item.meeting_point}}
+          }@else {
+            <em>En attente</em>
+          }
+        </div>
+        <div class="col">
+          <i class="bi bi-calendar3"></i>
+          @if (item.date) {
+            {{item.date | date:'MMM d'}}
+          }@else {
+            <em>En attente</em>
+          }
+        </div>
+        <div class="col">
+          <i class="bi bi-clock"></i>
+          @if (item.date && item.date.length == 16) {
+            {{item.date | date:'HH:mm'}}
+          }@else {
+            <em>En attente</em>
+          }
+        </div>
+        <div class="col">
+          <exam-status [exam]=item />
+        </div>
+      </div>
+    } @empty {
+      <div class="callout">
+        <em>Pas d'examens pour le moment</em>
+      </div>
+    }
+  </div>
+  
+  </div>
+</main>
